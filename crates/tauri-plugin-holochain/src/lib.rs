@@ -1,4 +1,4 @@
-use std::{collections::HashSet, path::PathBuf, sync::Arc};
+use std::{path::PathBuf, sync::Arc};
 
 use async_std::sync::Mutex;
 use hc_seed_bundle::dependencies::sodoken::BufRead;
@@ -37,7 +37,7 @@ use commands::install_web_app::{install_app, install_web_app, update_app, Update
 pub use error::{Error, Result};
 use filesystem::{AppBundleStore, BundleStore, FileSystem};
 
-const ZOME_CALL_SIGNER_INITIALIZATION_SCRIPT: &'static str = include_str!("../zome-call-signer.js");
+pub const ZOME_CALL_SIGNER_INITIALIZATION_SCRIPT: &'static str = include_str!("../zome-call-signer.js");
 
 /// Access to the holochain APIs.
 pub struct HolochainPlugin<R: Runtime> {
@@ -217,7 +217,7 @@ impl<R: Runtime> HolochainPlugin<R> {
         Ok(admin_ws)
     }
 
-    async fn get_app_websocket_auth(
+    pub async fn get_app_websocket_auth(
         &self,
         app_id: &InstalledAppId,
         main_window: bool,

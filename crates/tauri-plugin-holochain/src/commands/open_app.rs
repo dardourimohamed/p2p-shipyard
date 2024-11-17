@@ -5,6 +5,7 @@ use tauri::{command, AppHandle, Runtime};
 pub(crate) async fn open_app<R: Runtime>(
     app: AppHandle<R>,
     app_id: String,
+    #[allow(unused_variables)]
     title: String,
     url_path: Option<String>,
 ) -> crate::Result<()> {
